@@ -17,37 +17,32 @@ page.viewportSize = {
   height: 720
 };
 
-var get_screenshot = function(url, interval, period, interval_elapsed) {
+var getScreenshot = function(url, interval, period, interval_elapsed) {
   page.open(url);
 
-  page.onLoadFinished = function(status) {
-    // The screenshot is taken after 10 seconds, to ensure it's completely
-    // rendered
-    setTimeout(function() {
-      img_name = 'screenshots/traffic-update-' + new Date().toString() + '.png';
-      page.render(img_name);
-    }, 30000);
-    // Call the function again in a minute to record the traffic at that point
-    setTimeout(function() {
-      // Capture the next screenshot if there's more time left
-      if (interval_elapsed < period) {
-        get_screenshot(url, interval, period, interval_elapsed + interval)
-      } else {
-        phantom.exit();
-      }
-    }, interval);
-  };
-
+  // Capture the next screenshot if there's more time left
+  setTimeout(function() {
+    // Capture screenshot before refreshing the page, this also ensures complete
+    // page load
+    screenshot = 'screenshots/traffic-update-' + new Date().toString() + '.png';
+    page.render(screenshot);
+    console.log('Captured ' + screenshot);
+    if (interval_elapsed < period) {
+      getScreenshot(url, interval, period, interval_elapsed + interval)
+    } else {
+      phantom.exit(0);
+    }
+  }, interval);
 };
 
 // Create directory for screenshots
 var fs = require('fs');
-if (fs.makeDirectory('screenshots')) {
+if (fs.exists('screenshots') || fs.makeDirectory('screenshots')) {
   var URL = 'https://www.google.com/maps/@37.4604002,-122.079271,11z/data=!5m1!1e1';
   var PERIOD = 24 * 60 * 60 * 1000; // Day in milliseconds
   var INTERVAL = 60 * 1000; // 1 minute in milliseconds
-  get_screenshot(URL, INTERVAL, PERIOD, 0);
+  getScreenshot(URL, INTERVAL, PERIOD, 0);
 } else {
-  console.log('Could not create screenshots directory.');
+  console.log('Could not find or create screenshots directory.');
   phantom.exit();
 }
