@@ -1,1 +1,8 @@
+# MacOS specific files
+.DS_Store
+
+# Screenshot directory
+screenshots/
+
+# Local binaries
 phantomjs-2.1.1-macosx/
