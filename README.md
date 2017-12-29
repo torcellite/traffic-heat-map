@@ -1,4 +1,4 @@
-#Traffic Heat Map Generator
+# Traffic Heat Map Generator
 
 This is an ad-hoc script written to generate the traffic heat map for a given Google Map snippet.
 
@@ -11,4 +11,4 @@ This is an ad-hoc script written to generate the traffic heat map for a given Go
 
 ### Example
 ##### Traffic in the South Bay from 9:00 am to 10:00 am on 12/28/2017
-![alt  text](https://raw.githubusercontent.com/torcellite/traffic-heat-map/demo.gif)
+![alt  text](https://github.com/torcellite/traffic-heat-map/blob/master/demo.gif)
