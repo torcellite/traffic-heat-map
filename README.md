@@ -10,5 +10,5 @@ This is an ad-hoc script written to generate the traffic heat map for a given Go
 5. You can use ImageMagick to add a date-time caption and FFMPEG to stitch the images into a video.(I'll put up a cleaned up version of these scripts if I get enough requests.)
 
 ### Example
-##### Traffic in the South Bay from 9:00 am to 10:00 am on 12/28/2017
+##### Traffic in the South Bay from 5:30 pm on 12/27/2018 to 5:30 pm am on 12/28/2017
 [![ScreenShot](http://img.youtube.com/vi/xDRhj6jdVOU/maxresdefault.jpg)](https://www.youtube.com/watch?v=xDRhj6jdVOU)
