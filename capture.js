@@ -2,7 +2,7 @@
  * Author: torcellite (Karthik Balakrishnan)
  *
  * About this script:
- * This script was written to visualize traffic patterns in the Bay Area.
+ * This script was written to visualize traffic patterns in the South Bay.
  *
  * Default:
  * This script takes a screenshot of the hardcoded url every minute for one day.
